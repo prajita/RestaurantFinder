@@ -1,0 +1,96 @@
+.header-style{
+    background-color: transparent;
+    color: bisque;
+    height: 10%;
+}
+.bck {   
+    background-image: url("../images/food2.jpg") ;
+    background-position: center;
+    background-repeat: initial;
+    background-size: cover;
+}
+
+.buttonCity {
+    background-color: bisque;
+    border: none;
+    color: darkblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonCity:active{
+    background:olive;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row ;
+  }
+ .styleImg{
+     width: "100px";
+     height: "100px";
+     float: left;
+     border-radius: 50%
+ }
+ 
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  }
+
+  .cardPadding{
+      padding-bottom: 5% !important
+  }
+  .imageBorder{
+      padding: 2%;
+  }
+
+  	/*Loader CSS start*/
+.busy-indicator{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:9999;
+   
+}
+
+.busy-indicator .busy-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    opacity: .6;
+    background-color:#333;
+    z-index: -1;
+}
+
+.busy-indicator h2{
+    width: 100%;
+    text-align: center;
+    color:#FFF;
+    margin-top: 20%;
+    text-shadow: 1px 1px 3px #444;
+}
+
+.busy-indicator .busy-icon{
+    width: 100%;
+    text-align:center;
+    text-shadow: 0 0 3px #444;
+}
+
+.busy-indicator .busy-icon i{
+    display: inline-block;
+    
+}
+
+ 

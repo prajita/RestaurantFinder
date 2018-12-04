@@ -1,0 +1,46 @@
+{
+  "name": "restaurantfinder",
+  "version": "1.0.0",
+  "description": "find nearest Restaurant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
+  "author": "prajita sinha",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "httpster": "^1.0.3",
+    "image-webpack-loader": "^4.5.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-foundation": "^0.9.6",
+    "react-geolocated": "^2.4.0",
+    "react-grid-system": "^4.3.1",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "reactstrap": "^6.5.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.2.5",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
