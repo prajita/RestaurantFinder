@@ -1,16 +1,17 @@
 import React from "react";
-import { BrowserRouter , Router, Route, Switch } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import {  Router, Route, Switch } from 'react-router-dom';
 import RestaurantDashboard from './RestaurantDashboard';
 import OutletContainer from './containers/OutletContainer';
+import createBrowserHistory from 'history';
+import history from './history'
 
 export default (
-    <BrowserRouter history={browserHistory} >
+    <Router history={history} >
         <Switch>
             <Route path="/" component={RestaurantDashboard} />
             <Route path="/collection" component={OutletContainer} />
         </Switch>
-    </BrowserRouter>
+    </Router>
 
 
 )

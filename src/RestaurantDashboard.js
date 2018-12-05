@@ -9,12 +9,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SpinnerComponent from './components/SpinnerComponent';
 import { Redirect } from 'react-router-dom';
-import { browserHistory } from 'history';
+import history from './history'
+
 
 
 class RestaurantDashboard extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this.fetchAllCollectionByCity = this.fetchAllCollectionByCity.bind(this);
         this.showPosition = this.showPosition.bind(this);
     }
@@ -31,7 +32,7 @@ class RestaurantDashboard extends Component {
     checkoutlet(){
         console.log("routing to the outlet");
         // <Redirect to='/collection'/>
-        browserHistory.push('/collection');
+    history.push('/collection');
     }
     componentWillMount() {
 

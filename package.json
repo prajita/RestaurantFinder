@@ -17,8 +17,10 @@
   "dependencies": {
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "connected-react-router": "^5.0.1",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
+    "found": "^0.3.14",
     "httpster": "^1.0.3",
     "image-webpack-loader": "^4.5.0",
     "react": "^16.6.3",
