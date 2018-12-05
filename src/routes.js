@@ -5,7 +5,7 @@ import OutletContainer from './containers/OutletContainer';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 export default (
-    <BrowserRouter >
+    <BrowserRouter history={createBrowserHistory()} >
         <Switch>
             <Route path="/" component={RestaurantDashboard} />
             <Route path="/collection" component={OutletContainer} />
