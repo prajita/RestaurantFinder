@@ -8,7 +8,8 @@ import { loadCollections ,loadCollectionsByLocation} from './actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SpinnerComponent from './components/SpinnerComponent';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { browserHistory } from 'history';
 
 
 class RestaurantDashboard extends Component {
@@ -29,7 +30,8 @@ class RestaurantDashboard extends Component {
     }
     checkoutlet(){
         console.log("routing to the outlet");
-        return <Link to='/collection'/>
+        // <Redirect to='/collection'/>
+        browserHistory.push('/collection');
     }
     componentWillMount() {
 
