@@ -8,6 +8,10 @@
     "start": "./node_modules/.bin/webpack-dev-server",
     "heroku-prebuild": "npm install --dev"
   },
+  "engines": {
+    "node": "8.4.0",
+    "npm": "5.3.0"
+  },
   "author": "prajita sinha",
   "license": "ISC",
   "dependencies": {
