@@ -66,7 +66,7 @@ export const loadCollectionsByLocation = (lat, long) => {
     }
 }
 
-export const fetchOutlet = () => {
+export const fetchDataByCollectionId = () => {
 
     return function (dispatch) {
         dispatch(requestCollectionsByLocation());

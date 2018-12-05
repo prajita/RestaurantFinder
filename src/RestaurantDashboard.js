@@ -29,8 +29,8 @@ class RestaurantDashboard extends Component {
 
         this.props.loadCollectionsByLocation(position.coords.latitude,position.coords.longitude);
     }
-    checkoutlet(){
-        console.log("routing to the outlet");
+    checkCollection(){
+        console.log("routing to the Collection");
         // <Redirect to='/collection'/>
     history.push('/collection');
     }
@@ -79,7 +79,7 @@ class RestaurantDashboard extends Component {
                 </div>
                 <span style={{ color: "bisque", paddingTop: "10%", marginLeft: "40%" }}>*select your city here</span>
                 <br /><br />
-                <CollectionDetails collections={this.props.collections} checkoutlet={this.checkoutlet}/>
+                <CollectionDetails collections={this.props.collections} checkCollection={this.checkCollection}/>
                 {this.props.loading &&
                     <SpinnerComponent message="Loading collections..."/>
                 }

@@ -8,7 +8,7 @@ export default class RowComponent extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{this.props.data.title}</h5>
                     <p className="card-text">{this.props.data.description}</p>
-                    <a href="javascript:void(0)" onClick={this.props.checkoutlet} className="btn btn-primary">check this</a>
+                    <a href="javascript:void(0)" onClick={this.props.checkCollection} className="btn btn-success">check this</a>
                 </div>
             </div>
 

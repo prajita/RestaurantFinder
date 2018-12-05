@@ -12,7 +12,7 @@ export default class CollectionDetails extends Component {
                 if (each.collection.collection_id !== 274852) {
                     showData.push(
                         <div  key={i} className="col-4 cardPadding">
-                            <RowComponent data={each.collection} checkoutlet={this.props.checkoutlet} ></RowComponent>
+                            <RowComponent data={each.collection} checkCollection={this.props.checkCollection} ></RowComponent>
                         </div>)
                 }
             })
