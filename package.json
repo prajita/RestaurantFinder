@@ -17,6 +17,7 @@
   "dependencies": {
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "classnames": "^2.2.6",
     "connected-react-router": "^5.0.1",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",

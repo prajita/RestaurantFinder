@@ -8,8 +8,8 @@ import {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SpinnerComponent from '../components/SpinnerComponent';
-import { Redirect } from 'react-router-dom';
 import history from '../history';
+import NavHeader from '../components/NavHeader';
 
 class CollectionContainer extends Component {
 
@@ -17,31 +17,37 @@ class CollectionContainer extends Component {
     this.props.loadDataByCollectionId(this.props.match.params.collectionId, this.props.match.params.cityId);
   }
   render() {
-
-    let restaurantCards = this.props.restaurants.map(e => {
+    let namelist = this.props.restaurants.map(e => e.restaurant.name);
+    let restaurantCards = this.props.restaurants.map((e, index) => {
       return (
-        <div className="row ">
-          <div className="col-md-4">
-            <img src={e.restaurant.featured_image} className="w-100" />
-          </div>
-          <div className="col-md-8 px-3">
-            <div className="card-block px-3">
-              <h4 className="card-title" style={{ color: "bisque" }}>{e.restaurant.name}</h4>
-              <p className="card-text" style={{ color: "bisque" }}>{e.restaurant.cuisines} </p>
-              <p className="card-text" style={{ color: "bisque" }}>{e.restaurant.cuisines}</p>
-              <a href="#" className="btn btn-success">Read More</a>
+        <React.Fragment key={index}>
+          <div className="row " style={{ border: "5px solid bisque" }}>
+            <div className="col-4">
+              <img src={e.restaurant.featured_image} className="w-100" />
+            </div><br />
+            <div className="col-8 px-3">
+              <div className="card-block px-3">
+                <Link to={"/collections/restaurants/" + e.restaurant.id} className="card-title" style={{ color: "bisque", fontSize: '20pt', fontWeight: 'Bold' }}>
+                  {e.restaurant.name}</Link>
+                <p className="card-text" style={{ color: "bisque" }}>{e.restaurant.cuisines} </p>
+                <p className="card-text" style={{ color: "bisque" }}>{e.restaurant.location.address}</p>
+                <p className="card-text" style={{ color: "bisque" }}>{e.restaurant.location.locality + ',' + e.restaurant.location.city}</p>
+                <p className="card-text" style={{ color: "bisque" }}>{'Avg cost for 2 people : Rs.' + e.restaurant.average_cost_for_two}</p>
+                <Link to={"/collections/restaurants/" + e.restaurant.id} className="btn btn-success">Read More</Link>
+              </div>
             </div>
           </div>
-        </div>
+        </React.Fragment>
       )
     })
 
     return (
       <div style={{ backgroundColor: "rgb(43,29,14)" }}>
-
+        <NavHeader />
         <div className="container">
           <div className="row">
-            <div className="col-4"><Link to="/"><button className="btn btn-success">Back to dashboard</button></Link>
+            <div className="col-4"><Link to="/">
+              <button className="btn btn-success">Back to dashboard</button></Link>
             </div>
             <div className="col-8" >
               <h1 style={{ color: "white" }}>choose your favourite restaurant !</h1>
@@ -52,7 +58,7 @@ class CollectionContainer extends Component {
 
         {restaurantCards}
         {this.props.loading &&
-          <SpinnerComponent message="Loading collections..." />
+          <SpinnerComponent message="Loading restaurants..." />
         }
       </div>
 

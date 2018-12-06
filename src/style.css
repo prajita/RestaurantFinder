@@ -92,5 +92,45 @@
     display: inline-block;
     
 }
+.Bckbisque{
+    background-color: bisque;
+}
+.BckdarkChocolate{
+    background-color:rgb(43, 29, 14);
+}
+.colorDarkChocolate{
+    color: rgb(43, 29, 14) !important;
+    font-weight: 600;
+}
+.restaurantImageStyle{
+    max-width: 80%;
+    height: 400px;
+    display: block;
+    
+}
 
- 
+.ml10p{
+    margin-left: 10%;
+    }
+
+.star-ratings-sprite {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    font-size: 0;
+    height: 21px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 110px;
+    margin: 0 auto;
+    
+}
+.star-ratings-sprite-rsting{
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+    background-position: 0 100%;
+    float: left;
+    height: 21px;
+    display:block;
+}
+.backDarkBrown {
+    color:rgb(43, 29, 14);
+}

@@ -66,6 +66,7 @@ export const setCityDetailsByLocation = (cityId, cityName) => {
     }
 }
 
+
 export const loadCollections = (cityName) => {
     return function (dispatch) {
         dispatch(requestCollections(cityName));
@@ -95,12 +96,14 @@ export const loadCollectionsByLocation = (lat, long) => {
     }
 }
 
-export const loadDataByCollectionId = (collectionId,cityId) => {
+export const loadDataByCollectionId = (collectionId, cityId) => {
 
     return function (dispatch) {
         dispatch(requestEachCollectionDetails());
-        fetchEachCollectionDetailsApi(collectionId ,cityId,(result) => {           
-                dispatch(getEachCollectionDetails(result.restaurants));
+        fetchEachCollectionDetailsApi(collectionId, cityId, (result) => {
+            dispatch(getEachCollectionDetails(result.restaurants));
         });
     }
 }
+
+

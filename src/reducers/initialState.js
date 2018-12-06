@@ -4,5 +4,6 @@ export default {
     currCityDetails: {},
     RestaurantDetails: [],
     collections: [],
-    restaurants: []
+    restaurants: [],
+    loading: true
 }

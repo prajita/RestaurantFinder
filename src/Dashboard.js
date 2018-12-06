@@ -12,10 +12,11 @@ import { connect } from 'react-redux';
 import SpinnerComponent from './components/SpinnerComponent';
 import { Redirect } from 'react-router-dom';
 import history from './history';
+import NavHeader from './components/NavHeader';
 
 
 
-class RestaurantDashboard extends Component {
+class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.fetchAllCollectionByCity = this.fetchAllCollectionByCity.bind(this);
@@ -33,7 +34,7 @@ class RestaurantDashboard extends Component {
     }
     checkCollection(collection_id, props) {
         history.push('/city/' + props.currentCityId + '/collection/' + collection_id);
-       // loadRestaurantsForSelectedCollection(collection_id, props.currentCityId || -1);
+        // loadRestaurantsForSelectedCollection(collection_id, props.currentCityId || -1);
     }
     componentWillMount() {
 
@@ -68,29 +69,32 @@ class RestaurantDashboard extends Component {
         ))
 
         return (
-            <div className="bck">
-                <div className="container">
-                    <div className="row header-style" >
-                        <div className="col-4"><img src={img} className="styleImg" /></div>
-                        <div className="col-8" >
-                            <h1>Welcome !! choose your favourite cuisine !</h1>
-                            <div className="flex-container ">{listofCities}
+            <React.Fragment>
+                <NavHeader/>
+                <div className="bck">
+                    <div className="container">
+                        <div className="row header-style" >
+                            <div className="col-4"><img src={img} className="styleImg" /></div>
+                            <div className="col-8" >
+                                <h1>Welcome !! choose your favourite Restaurant !</h1>
+                                <div className="flex-container ">{listofCities}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <span style={{ color: "bisque", paddingTop: "10%", marginLeft: "40%" }}>*select your city here</span>
+                    <br /><br />
+                    <CollectionDetails collections={this.props.collections} checkCollection={(id) => this.checkCollection(id, this.props)} />
+                    {this.props.loading &&
+                        <SpinnerComponent message="Loading collections..." />
+                    }
                 </div>
-                <span style={{ color: "bisque", paddingTop: "10%", marginLeft: "40%" }}>*select your city here</span>
-                <br /><br />
-                <CollectionDetails collections={this.props.collections} checkCollection={(id) => this.checkCollection(id, this.props)} />
-                {this.props.loading &&
-                    <SpinnerComponent message="Loading collections..." />
-                }
-            </div>
+            </React.Fragment>
         )
     }
 }
 
-RestaurantDashboard.propTypes = {
+Dashboard.propTypes = {
     collections: PropTypes.array,
     loadCollections: PropTypes.func,
     loadCollectionsByLocation: PropTypes.func,
@@ -120,4 +124,4 @@ const mapDispatchToProps = (dispatch) => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
