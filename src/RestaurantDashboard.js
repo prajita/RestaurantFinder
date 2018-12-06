@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import img from '../images/coffee.jpg';
-import { Container, Row, Col } from 'reactstrap';
 import CollectionDetails from './components/CollectionDetails';
-import { loadCollections ,loadCollectionsByLocation} from './actions';
+import {
+    loadCollections,
+    loadCollectionsByLocation
+} from './actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SpinnerComponent from './components/SpinnerComponent';
 import { Redirect } from 'react-router-dom';
-import history from './history'
+import history from './history';
 
 
 
@@ -27,12 +29,11 @@ class RestaurantDashboard extends Component {
         console.log("Latitude of your position::" + position.coords.latitude +
             "Longitude of your position:: " + position.coords.longitude);
 
-        this.props.loadCollectionsByLocation(position.coords.latitude,position.coords.longitude);
+        this.props.loadCollectionsByLocation(position.coords.latitude, position.coords.longitude);
     }
-    checkCollection(){
-        console.log("routing to the Collection");
-        // <Redirect to='/collection'/>
-    history.push('/collection');
+    checkCollection(collection_id, props) {
+        history.push('/city/' + props.currentCityId + '/collection/' + collection_id);
+       // loadRestaurantsForSelectedCollection(collection_id, props.currentCityId || -1);
     }
     componentWillMount() {
 
@@ -43,10 +44,11 @@ class RestaurantDashboard extends Component {
             this.props.loadCollections('Bangalore', (resp) => {
                 console.log("response::", resp)
             });
-        }   
+        }
 
     }
     render() {
+        console.log(this.props);
         let cities = [
             { id: 1, name: "Kolkata" },
             { id: 2, name: "Pune" },
@@ -79,9 +81,9 @@ class RestaurantDashboard extends Component {
                 </div>
                 <span style={{ color: "bisque", paddingTop: "10%", marginLeft: "40%" }}>*select your city here</span>
                 <br /><br />
-                <CollectionDetails collections={this.props.collections} checkCollection={this.checkCollection}/>
+                <CollectionDetails collections={this.props.collections} checkCollection={(id) => this.checkCollection(id, this.props)} />
                 {this.props.loading &&
-                    <SpinnerComponent message="Loading collections..."/>
+                    <SpinnerComponent message="Loading collections..." />
                 }
             </div>
         )
@@ -91,7 +93,9 @@ class RestaurantDashboard extends Component {
 RestaurantDashboard.propTypes = {
     collections: PropTypes.array,
     loadCollections: PropTypes.func,
-    loadCollectionsByLocation: PropTypes.func
+    loadCollectionsByLocation: PropTypes.func,
+    currentCityId: PropTypes.number,
+    currentCityName: PropTypes.string
 };
 
 const mapStateToProps = (state) => {
@@ -107,7 +111,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return (
         bindActionCreators(
-            { loadCollections ,loadCollectionsByLocation}, dispatch
+            {
+                loadCollections,
+                loadCollectionsByLocation
+
+            }, dispatch
         )
     )
 }

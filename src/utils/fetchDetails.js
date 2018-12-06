@@ -65,6 +65,26 @@ export const fetchCityDetailsByLocationApi = (lat, long, callback) => {
 
 }
 
+export const fetchEachCollectionDetailsApi = (collectionId,cityId, callback) => {
+    let xhr = new XMLHttpRequest;
+    xhr.onreadystatechange = function () {
+        // Only run if the request is complete
+        if (xhr.readyState !== 4) return;
+        if (xhr.readyState === 4 && this.status === 200) {
+            let resp = JSON.parse(this.responseText);
+            callback(resp);
+        } else {
+            console.log('error', xhr);
+            alert('Error in Api...Please Try again');
+        }
+    }
+    let url = 'https://developers.zomato.com/api/v2.1/search?entity_id='+cityId+'&entity_type=city&collection_id='+collectionId+'&sort=cost&order=desc';
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader("user-key", "47eaacfb989f806c7525d42eb60a47be");
+    xhr.send();
+
+}
+
 
 //fetch("https://developers.zomato.com/api/v2.1/cities?q=Kolkata",
   //   {       

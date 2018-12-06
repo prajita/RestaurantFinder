@@ -1,7 +1,8 @@
 export default {
-    currentCityName: "Bangalore",
-    currentCityId: 4,
+    currentCityName: "",
+    currentCityId: -1,
     currCityDetails: {},
     RestaurantDetails: [],
-    collections: []
+    collections: [],
+    restaurants: []
 }

@@ -9,7 +9,7 @@ export default (
     <Router history={history} >
         <div>
             <Route exact path="/" component={RestaurantDashboard} />
-            <Route path="/collection/:id" component={CollectionContainer} />
+            <Route path="/city/:cityId/collection/:collectionId" component={CollectionContainer} />
         </div>
     </Router>
 
