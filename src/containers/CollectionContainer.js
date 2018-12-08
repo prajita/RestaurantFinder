@@ -12,7 +12,7 @@ import history from '../history';
 import NavHeader from '../components/NavHeader';
 
 class CollectionContainer extends Component {
-
+ 
   componentWillMount() {
     this.props.loadDataByCollectionId(this.props.match.params.collectionId, this.props.match.params.cityId);
   }
@@ -55,7 +55,6 @@ class CollectionContainer extends Component {
             </div>
           </div>
         </div><br /><br />
-
         {restaurantCards}
         {this.props.loading &&
           <SpinnerComponent message="Loading restaurants..." />
@@ -69,7 +68,8 @@ class CollectionContainer extends Component {
 
 CollectionContainer.propTypes = {
   restaurants: PropTypes.array,
-  loadDataByCollectionId: PropTypes.func
+  loadDataByCollectionId: PropTypes.func,
+  loading: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
@@ -84,7 +84,6 @@ const mapDispatchToProps = (dispatch) => {
     bindActionCreators(
       {
         loadDataByCollectionId
-
       }, dispatch
     )
   )

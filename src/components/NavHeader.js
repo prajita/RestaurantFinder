@@ -10,6 +10,9 @@ export default class NavHeader extends Component {
             <li className="nav-item active ">
                 <Link className="nav-link colorDarkChocolate" to='/'>Home</Link>
             </li>
+            <li className="nav-item active ">
+                <Link className="nav-link colorDarkChocolate" to='/'>Back to Collections</Link>
+            </li>
             <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle colorDarkChocolate" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown">
                 Order your food

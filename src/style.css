@@ -134,3 +134,23 @@
 .backDarkBrown {
     color:rgb(43, 29, 14);
 }
+
+.font-italic{
+    font-size: 18px;
+    font-style: italic
+}
+.posts-lazy-scroll {
+    margin-top: 15px;
+
+}
+.posts-lazy-scroll__item article
+{
+    height: 350px;
+}
+.posts-lazy-scroll__messages {
+    padding: 0 30px;
+}
+.redux-lazy-scroll {
+    height: 500px;
+    overflow: scroll;
+}

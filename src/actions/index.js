@@ -3,7 +3,8 @@ import {
     fetchAllCollectionApi,
     fetchCityDetailsApi,
     fetchCityDetailsByLocationApi,
-    fetchEachCollectionDetailsApi
+    fetchEachCollectionDetailsApi,
+    fetchReviewsApi
 } from '../utils/fetchDetails';
 import {
     REQUEST_COLLECTIONS,
@@ -12,7 +13,9 @@ import {
     FETCH_COLLECTIONS,
     FETCH_COLLECTION_DETAILS,
     SET_CITY_DETAILS,
-    SET_CITY_DETAILS_BY_LOCATION
+    SET_CITY_DETAILS_BY_LOCATION,
+    REQUEST_REVIEWS,
+    FETCH_REVIEWS
 } from './actionTypes';
 
 
@@ -20,21 +23,24 @@ export const requestCollections = (cityName) => {
     return {
         type: REQUEST_COLLECTIONS,
         loading: true,
-        cityName: cityName
+        cityName: cityName,
+        showReviews: false
     }
 }
 
 export const requestCollectionsByLocation = () => {
     return {
         type: REQUEST_COLLECTIONS_BY_LOCATION,
-        loading: true
+        loading: true,
+        showReviews: false
     }
 }
 export const getCollectionsByCitySuccess = (collections, cityId, cityName) => {
     return {
         type: FETCH_COLLECTIONS,
         payload: collections,
-        loading: false
+        loading: false,
+        showReviews: false
 
     }
 }
@@ -42,31 +48,53 @@ export const getCollectionsByCitySuccess = (collections, cityId, cityName) => {
 export const requestEachCollectionDetails = () => {
     return {
         type: REQUEST_COLLECTION_DETAILS,
-        loading: true
+        loading: true,
+        showReviews: false
     }
 }
 export const getEachCollectionDetails = (restaurants) => {
     return {
         type: FETCH_COLLECTION_DETAILS,
         payload: restaurants,
-        loading: false
+        loading: false,
+        showReviews: false
     }
 }
 export const setCityDetails = (cityId) => {
     return {
         type: SET_CITY_DETAILS,
-        cityId: cityId
+        cityId: cityId,
+        showReviews: false
     }
 }
 export const setCityDetailsByLocation = (cityId, cityName) => {
     return {
         type: SET_CITY_DETAILS_BY_LOCATION,
         cityId: cityId,
-        cityName: cityName
+        cityName: cityName,
+        showReviews: false
     }
 }
 
-
+export const requestReviews = (reviewStart, reviewCount) => {
+    return {
+        type: REQUEST_REVIEWS,
+        isFetching: true,
+        reviewStart: reviewStart + reviewCount,
+        reviewCount,
+        hasMore: true,
+        showReviews: true
+    }
+}
+export const getReviews = (reviews, reviews_count, reviews_shown) => {
+    return {
+        type: FETCH_REVIEWS,
+        payload: reviews,
+        showReviews: true,
+        isFetching: false,
+        hasMore: (reviews_count >= reviews_shown)
+    }
+}
 export const loadCollections = (cityName) => {
     return function (dispatch) {
         dispatch(requestCollections(cityName));
@@ -106,4 +134,12 @@ export const loadDataByCollectionId = (collectionId, cityId) => {
     }
 }
 
+export const loadReviewsByRestaurantId = (resId, reviewStart, reviewCount) => {
 
+    return function (dispatch) {
+        dispatch(requestReviews(reviewStart, reviewCount));
+        fetchReviewsApi(resId, reviewStart, reviewCount, (result) => {
+            dispatch(getReviews(result.user_reviews, result.reviews_count, result.reviews_shown));
+        });
+    }
+}

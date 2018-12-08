@@ -3,7 +3,6 @@ import {  Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import CollectionContainer from './containers/CollectionContainer';
 import RestaurantContainer from './containers/RestaurantContainer';
-import createBrowserHistory from 'history';
 import history from './history';
 
 export default (

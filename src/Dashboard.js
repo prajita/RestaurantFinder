@@ -43,7 +43,7 @@ class Dashboard extends Component {
         } else {
             alert("Geolocation is not supported by this browser.");
             this.props.loadCollections('Bangalore', (resp) => {
-                console.log("response::", resp)
+                console.log("response::", resp);
             });
         }
 

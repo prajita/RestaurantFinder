@@ -13,8 +13,14 @@ module.exports = {
     devServer: {
         inline: true,
         contentBase: './dist',
-        port:  3000
+        port: 3000,
+        historyApiFallback: true,
     },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: 'dist/index.html'
+        })
+    ],
     devtool: "source-map",
     module: {
         loaders: [
