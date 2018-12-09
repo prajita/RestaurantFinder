@@ -43,7 +43,9 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: action.loading,
-                showReviews: action.showReviews               
+                showReviews: action.showReviews,
+                reviewStart: action.reviewStart,
+                reviewCount: action.reviewCount
             };
 
         case FETCH_COLLECTION_DETAILS:

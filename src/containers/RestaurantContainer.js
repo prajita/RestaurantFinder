@@ -36,7 +36,10 @@ class RestaurantContainer extends Component {
                 </div>
 
                 <div className="row BckdarkChocolate">
-                    <div className="col-2" />
+                    <div className="col-2" >
+                        <button className="nav-link colorDarkChocolate btn Bckbisque BorderButton"
+                            onClick={() => this.props.history.goBack()}>{'< Back to Collection'}</button>
+                    </div>
                     <div className="col-10" >
                         <h1 style={{ color: "bisque" }}>{inputData.name}</h1>
                         <div className="flex-container "></div>
@@ -118,13 +121,13 @@ class RestaurantContainer extends Component {
                                     <span className="card-text" style={{ color: "backDarkBrown" }}>{inputData.user_rating.votes}</span>
                                 </p>
                                 <div><button className="btn btn-success"
-                                    onClick={()=>this.fetchRestaurantReviews(restaurantId)}>check Reviews</button></div>
+                                    onClick={() => this.fetchRestaurantReviews(restaurantId)}>check Reviews</button></div>
                                 {this.props.showReviews &&
 
                                     <div className="container posts-lazy-scroll">
                                         <ReduxLazyScroll
                                             isFetching={this.props.isFetching}
-                                            loadMore={()=>this.fetchRestaurantReviews(restaurantId)}
+                                            loadMore={() => this.fetchRestaurantReviews(restaurantId)}
                                             hasMore={this.props.hasMore}
                                         >
                                             <ReviewComponent reviewData={this.props.reviews} />

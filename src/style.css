@@ -98,6 +98,9 @@
 .BckdarkChocolate{
     background-color:rgb(43, 29, 14);
 }
+.BorderButton{
+    border: 2px solid rgb(43, 29, 14);
+}
 .colorDarkChocolate{
     color: rgb(43, 29, 14) !important;
     font-weight: 600;

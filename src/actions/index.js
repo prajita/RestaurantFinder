@@ -49,7 +49,9 @@ export const requestEachCollectionDetails = () => {
     return {
         type: REQUEST_COLLECTION_DETAILS,
         loading: true,
-        showReviews: false
+        showReviews: false,
+        reviewStart: 0,
+        reviewCount: 2
     }
 }
 export const getEachCollectionDetails = (restaurants) => {
