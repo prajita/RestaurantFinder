@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Constants from '../constants/types'
 export const fetchCityDetailsApi = (cityName, callback) => {
 
     let xhr = new XMLHttpRequest;
@@ -14,7 +15,8 @@ export const fetchCityDetailsApi = (cityName, callback) => {
             alert('Error in Api...Please Try again');
         }
     }
-    let url = `https://developers.zomato.com/api/v2.1/cities?q=${cityName}`;
+    let endpoint = Constants.ENDPOINT_URL;
+    let url = `${endpoint}cities?q=${cityName}`;
     xhr.open('GET', url, true);
     xhr.setRequestHeader("user-key", "47eaacfb989f806c7525d42eb60a47be");
     xhr.send();
@@ -36,7 +38,8 @@ export const fetchAllCollectionApi = (cityId, callback) => {
             alert('Error in Api...Please Try again');
         }
     }
-    let url = `https://developers.zomato.com/api/v2.1/collections?city_id=${cityId}`;
+    let endpoint = Constants.ENDPOINT_URL;
+    let url = `${endpoint}collections?city_id=${cityId}`;
     xhr.open('GET', url, true);
     xhr.setRequestHeader("user-key", "47eaacfb989f806c7525d42eb60a47be");
     xhr.send();
@@ -57,7 +60,8 @@ export const fetchCityDetailsByLocationApi = (lat, long, callback) => {
             alert('Error in Api...Please Try again');
         }
     }
-    let url = `https://developers.zomato.com/api/v2.1/geocode?lat=${lat}&lon=${long}`;
+    let endpoint = Constants.ENDPOINT_URL;
+    let url = `${endpoint}geocode?lat=${lat}&lon=${long}`;
     xhr.open('GET', url, true);
     xhr.setRequestHeader("user-key", "47eaacfb989f806c7525d42eb60a47be");
     xhr.send();
@@ -77,7 +81,8 @@ export const fetchEachCollectionDetailsApi = (collectionId, cityId, callback) =>
             alert('Error in Api...Please Try again');
         }
     }
-    let url = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&collection_id=${collectionId}&sort=cost&order=desc`;
+    let endpoint = Constants.ENDPOINT_URL;
+    let url = `${endpoint}search?entity_id=${cityId}&entity_type=city&collection_id=${collectionId}&sort=cost&order=desc`;
     xhr.open('GET', url, true);
     xhr.setRequestHeader("user-key", "47eaacfb989f806c7525d42eb60a47be");
     xhr.send();
@@ -97,7 +102,8 @@ export const fetchReviewsApi = (resId, reviewStart, reviewCount, callback) => {
             alert('Error in Api...Please Try again');
         }
     }
-    let url = `https://developers.zomato.com/api/v2.1/reviews?res_id=${resId}&start=${reviewStart}&count=${reviewCount}`
+    let endpoint = Constants.ENDPOINT_URL;
+    let url = `${endpoint}reviews?res_id=${resId}&start=${reviewStart}&count=${reviewCount}`
     xhr.open('GET', url, true);
     xhr.setRequestHeader("user-key", "47eaacfb989f806c7525d42eb60a47be");
     xhr.send();

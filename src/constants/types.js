@@ -1,0 +1,1 @@
+export const ENDPOINT_URL= 'https://developers.zomato.com/api/v2.1/';
