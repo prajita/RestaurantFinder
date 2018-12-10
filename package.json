@@ -4,9 +4,9 @@
   "description": "find nearest Restaurant",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/webpack-dev-server",
-    "heroku-prebuild": "npm install --dev"
+    "build": "npm run start && serve -s ./dist",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "8.4.0",
