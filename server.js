@@ -7,4 +7,5 @@ console.log('Inside server js ', path.join(__dirname,'dist'));
 app.get('/*',function(req,res){
 res.sendFile(path.join(__dirname,'dist','index.html'))
 });
-app.listen(3000,()=>{console.log("app is up!!")})
+var port = process.env.PORT || 3000;
+app.listen(port,()=>{console.log("app is up!!")})
