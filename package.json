@@ -9,8 +9,8 @@
     "heroku-postbuild": "npm install && npm run start"
   },
   "engines": {
-    "node": ">=8.4.0",
-    "npm": ">=5.3.0"
+    "node": "8.4.0",
+    "npm": "5.3.0"
   },
   "author": "prajita sinha",
   "license": "ISC",
