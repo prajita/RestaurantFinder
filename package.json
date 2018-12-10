@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server",
     "build": "node server.js",
-    "heroku-postbuild": "npm install && npm run start"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "engines": {
     "node": "8.4.0",
