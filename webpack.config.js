@@ -1,5 +1,6 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/app.js',
@@ -19,7 +20,10 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({
             template: 'dist/index.html'
-        })
+        }),
+        new webpack.ProvidePlugin({
+            "React": "react",
+          })
     ],
     devtool: "source-map",
     module: {
@@ -48,7 +52,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: "file-loader?name=src/images/[name].[ext]"
+                loader: "file-loader?name=/src/images/[name].[ext]"
             }
 
         ]

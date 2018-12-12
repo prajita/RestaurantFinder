@@ -4,9 +4,9 @@
   "description": "find nearest Restaurant",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "./node_modules/.bin/webpack-dev-server",
-    "heroku-postbuild": "npm install && npm run build"
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "build": "npm install && node server.js",
+    "deploy": "npm install && npm run-script build"
   },
   "engines": {
     "node": "8.4.0",

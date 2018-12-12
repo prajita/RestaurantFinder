@@ -3,7 +3,7 @@ const path =  require("path");
 const app = express();
 
 app.use(express());
-app.use(express().json());
+//app.use(express().json());
 app.use("/", express.static(`${__dirname}/dist`));
 
 /*app.use(express.static(path.join(__dirname,'dist')));
