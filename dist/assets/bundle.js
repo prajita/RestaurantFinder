@@ -31013,20 +31013,35 @@
 	    }, {
 	        key: 'componentWillMount',
 	        value: function componentWillMount() {
+	            var _this2 = this;
 	
-	            if (navigator.geolocation) {
-	                navigator.geolocation.getCurrentPosition(this.showPosition);
-	            } else {
-	                alert("Geolocation is not supported by this browser.");
-	                this.props.loadCollections('Bangalore', function (resp) {
-	                    console.log("response::", resp);
-	                });
-	            }
+	            // if (navigator.geolocation) {
+	            //     navigator.geolocation.getCurrentPosition(this.showPosition);
+	            // } else {
+	            //     alert("Geolocation is not supported by this browser.");
+	            //     this.props.loadCollections('Bangalore', (resp) => {
+	            //         console.log("response::", resp);
+	            //     });
+	            // }
+	
+	            navigator.geolocation.getCurrentPosition(function (success) {
+	                navigator.geolocation.getCurrentPosition(_this2.showPosition);
+	            }, function (failure) {
+	                if (failure.message.startsWith("Only secure origins are allowed")) {
+	                    alert("Geolocation is not supported by this browser.");
+	                    _this2.props.loadCollections('Bangalore', function (resp) {
+	                        console.log("response::", resp);
+	                    });
+	                }
+	            });
+	            // this.props.loadCollections('Bangalore', (resp) => {
+	            //             console.log("response::", resp);
+	            //         });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
+	            var _this3 = this;
 	
 	            console.log(this.props);
 	            var cities = [{ id: 1, name: "Kolkata" }, { id: 2, name: "Pune" }, { id: 3, name: "Chennai" }, { id: 4, name: "Delhi" }, { id: 5, name: "Bangalore" }, { id: 6, name: "Ahmedabad" }];
@@ -31036,7 +31051,7 @@
 	                    'button',
 	                    { key: index, className: 'buttonCity',
 	                        onClick: function onClick() {
-	                            _this2.fetchAllCollectionByCity(e.name);
+	                            _this3.fetchAllCollectionByCity(e.name);
 	                        } },
 	                    e.name
 	                ));
@@ -31084,7 +31099,7 @@
 	                    _react2.default.createElement('br', null),
 	                    _react2.default.createElement('br', null),
 	                    _react2.default.createElement(_CollectionDetails2.default, { collections: this.props.collections, checkCollection: function checkCollection(id) {
-	                            return _this2.checkCollection(id, _this2.props);
+	                            return _this3.checkCollection(id, _this3.props);
 	                        } }),
 	                    this.props.loading && _react2.default.createElement(_SpinnerComponent2.default, { message: 'Loading collections...' })
 	                )
@@ -32237,6 +32252,27 @@
 	//     res => JSON.stringify(res))
 	//   .then(
 	//     data => console.log(data))
+	
+	
+	//   fetch("http://localhost:3000/api/actors",
+	//   {
+	//       method: "GET", // *GET, POST, PUT, DELETE, etc.
+	//       mode: "no-cors", // no-cors, cors, *same-origin
+	//       cache: "no-cache",
+	//       headers: {
+	//           'name': "Content-Type",
+	//           'value': "application/json"
+	//       }
+	//   }
+	// )
+	//   .then(
+	//       res => JSON.stringify(res))
+	//   .then(
+	//       data => {
+	//           console.log(data)
+	//           callback(data);
+	//       }
+	//   )
 
 /***/ },
 /* 127 */

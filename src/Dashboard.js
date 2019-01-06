@@ -37,15 +37,26 @@ class Dashboard extends Component {
         // loadRestaurantsForSelectedCollection(collection_id, props.currentCityId || -1);
     }
     componentWillMount() {
+        //chrome does not support navigator.geolocation
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(this.showPosition);
+        // } else {
+        //     alert("Geolocation is not supported by this browser.");
+        //     this.props.loadCollections('Bangalore', (resp) => {
+        //         console.log("response::", resp);
+        //     });
+        // }
 
-        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success => {
             navigator.geolocation.getCurrentPosition(this.showPosition);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-            this.props.loadCollections('Bangalore', (resp) => {
-                console.log("response::", resp);
-            });
-        }
+        }, failure => {
+            if (failure.message.startsWith("Only secure origins are allowed")) {
+                alert("Geolocation is not supported by this browser.");
+                this.props.loadCollections('Bangalore', (resp) => {
+                    console.log("response::", resp);
+                });
+            }
+        });
 
     }
     render() {
@@ -70,7 +81,7 @@ class Dashboard extends Component {
 
         return (
             <React.Fragment>
-                <NavHeader/>
+                <NavHeader />
                 <div className="bck">
                     <div className="container">
                         <div className="row header-style" >

@@ -125,3 +125,25 @@ export const fetchReviewsApi = (resId, reviewStart, reviewCount, callback) => {
   //     res => JSON.stringify(res))
   //   .then(
   //     data => console.log(data))
+
+
+//   fetch("http://localhost:3000/api/actors",
+//   {
+//       method: "GET", // *GET, POST, PUT, DELETE, etc.
+//       mode: "no-cors", // no-cors, cors, *same-origin
+//       cache: "no-cache",
+//       headers: {
+//           'name': "Content-Type",
+//           'value': "application/json"
+//       }
+//   }
+// )
+//   .then(
+//       res => JSON.stringify(res))
+//   .then(
+//       data => {
+//           console.log(data)
+//           callback(data);
+//       }
+//   )
+
