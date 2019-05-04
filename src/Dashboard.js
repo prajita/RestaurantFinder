@@ -10,8 +10,6 @@ import {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SpinnerComponent from './components/SpinnerComponent';
-import { Redirect } from 'react-router-dom';
-import history from './history';
 import NavHeader from './components/NavHeader';
 
 
@@ -33,7 +31,7 @@ class Dashboard extends Component {
         this.props.loadCollectionsByLocation(position.coords.latitude, position.coords.longitude);
     }
     checkCollection(collection_id, props) {
-        history.push('/city/' + props.currentCityId + '/collection/' + collection_id);
+        this.props.history.push('/city/' + props.currentCityId + '/collection/' + collection_id);
         // loadRestaurantsForSelectedCollection(collection_id, props.currentCityId || -1);
     }
     componentWillMount() {

@@ -8,7 +8,6 @@ import {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SpinnerComponent from '../components/SpinnerComponent';
-import history from '../history';
 import NavHeader from '../components/NavHeader';
 
 class CollectionContainer extends Component {
