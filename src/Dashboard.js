@@ -64,7 +64,7 @@ class Dashboard extends Component {
             { id: 2, name: "Pune" },
             { id: 3, name: "Chennai" },
             { id: 4, name: "Delhi" },
-            { id: 5, name: "Bangalore" },
+            { id: 5, name: "Bengaluru" },
             { id: 6, name: "Ahmedabad" }
         ];
         let listofCities = [];
