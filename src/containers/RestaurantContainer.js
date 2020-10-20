@@ -4,12 +4,9 @@ import PropTypes from 'prop-types';
 import {
     loadReviewsByRestaurantId
 } from '../actions';
-import classNames from 'classnames';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import SpinnerComponent from '../components/SpinnerComponent';
 import ReviewComponent from '../components/ReviewComponent';
-import history from '../history';
 import NavHeader from '../components/NavHeader';
 import '../style.css';
 import StarRatingComponent from 'react-star-rating-component';
