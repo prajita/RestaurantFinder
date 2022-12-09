@@ -20,7 +20,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^5.0.1",
     "css-loader": "^1.0.1",
-    "express": "4.16.4",
+    "express": "4.17.3",
     "file-loader": "^2.0.0",
     "found": "^0.3.14",
     "httpster": "^1.0.5",
