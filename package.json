@@ -23,7 +23,7 @@
     "express": "4.16.4",
     "file-loader": "^2.0.0",
     "found": "^0.3.14",
-    "httpster": "^1.0.5",
+    "httpster": "^1.1.0",
     "image-webpack-loader": "^7.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
